@@ -34,7 +34,7 @@ jobs:
            run: make coverage > coverage_output
 
          - uses: actions/upload-artifact@v2
+           if: always()
            with:
                name: coverage_outputs
-               if: always()
                path: coverage_output
