@@ -1,6 +1,10 @@
 name: Unit Tests
 
-on: [push]
+on:
+    push:
+        branches:
+            - master
+            - dev
 
 defaults:
     run:
@@ -16,8 +20,9 @@ jobs:
             - uses: actions/checkout@v2
             - name: Say hello world
               run: echo "Welcome to the Github Actions workshop!"
+
     unit-test:
-       name: unit-tests
+        name: unit-tests
         runs-on: ubuntu-20.04
         container: epitechcontent/epitest-docker:latest
 
