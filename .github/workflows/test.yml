@@ -16,18 +16,14 @@ jobs:
             - uses: actions/checkout@v2
             - name: Say hello world
               run: echo "Welcome to the Github Actions workshop!"
-#    tests:
-#       name: Tests
-#        runs-on: ubuntu-latest
-#        container: epitechcontent/epitest-docker:latest
-#
-#       steps:
-#         - uses: actions/checkout@v2
-#         - name: Build
-#           run: make tests_run
-#         - name: Run
-#           run: ./unit_test -j1 --verbose
-#         - name: Line Coverage
-#           run: gcovr --exclude-directories tests/
-#         - name: Branch Coverage
-#           run: gcovr --exclude-directories tests/ --branches
+    unit-test:
+       name: unit-tests
+        runs-on: ubuntu-20.04
+        container: epitechcontent/epitest-docker:latest
+
+       steps:
+         - uses: actions/checkout@v2
+         - name: Build
+           run: make tests_run
+         - name: Coverage
+           run: make coverage
